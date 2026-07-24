@@ -56,7 +56,7 @@
                             </a>
                         </td>
                         @if ( auth()->user()->isAdmin() )
-                            <td class="px-6 py-3 text-gray-800"> {{ $jobApplication->jobVacancy->company->name}} </td>
+                            <td class="px-6 py-3 text-gray-800"> {{ $jobApplication->jobVacancy->company?->name ?? 'N/A'}} </td>
                         @endif
                         <td class="px-6 py-3 text-gray-800 @if( $jobApplication->status == 'accepted') text-green-500 @elseif( $jobApplication->status == 'rejected') text-red-500 @elseif( $jobApplication->status == 'pending') text-purple-500 @endif"> {{ $jobApplication->status }} </td>
                         <td class="flex items-center px-6 py-3">

@@ -13,7 +13,6 @@
                 <h3 class="text-lg font-medium text-gary-900"> Active Users </h3>
                 <p class="text-2xl font-bold text-indigo-600 p"> {{ $analytics['totalActiveUsersAtLastOneMonth'] }} </p>
                 <p class="text-sm font-sans text-gray-500"> Last 30 days </p>
-
             </div>
 
             {{-- Total Jobs --}}

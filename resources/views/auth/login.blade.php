@@ -8,7 +8,7 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -18,7 +18,7 @@
 
             <div class="relative" x-data="{ showPassword: false }">
 
-                <x-text-input x-bind:type="showPassword ? 'text' : 'password'" id="password" class="block mt-1 w-full" name="password" required autocomplete="current-password" />
+                <x-text-input x-bind:type="showPassword ? 'text' : 'password'" id="password" class="block mt-1 w-full" name="password" autocomplete="current-password" />
 
                 <button type="button" @click="showPassword = !showPassword" class="absolute inset-y-0 right-2 flex items-center text-gray-500">
                     {{-- Eye Closed Icon --}}
