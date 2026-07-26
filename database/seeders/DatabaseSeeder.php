@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Company;
-use App\Models\JobApplication;
-use App\Models\JobCategory;
-use App\Models\JobVacancy;
-use App\Models\Resume;
-use App\Models\User;
+use Job\Shared\Models\Company;
+use Job\Shared\Models\JobApplication;
+use Job\Shared\Models\JobCategory;
+use Job\Shared\Models\JobVacancy;
+use Job\Shared\Models\Resume;
+use Job\Shared\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\JobCategory\CreateJobCategoryValidationRequest;
 use App\Http\Requests\JobCategory\EditJobCategoryValidationRequest;
-use App\Models\JobCategory;
+use Job\Shared\Models\JobCategory;
 use Illuminate\Http\Request;
 
 class JobCategoryController extends Controller
@@ -44,7 +44,7 @@ class JobCategoryController extends Controller
 
         JobCategory::create($validatedData);
 
-        return redirect('/job-categories')->with( ['success' => 'Categore created successfully.'] );
+        return redirect('/job-categories')->with( ['success' => 'Category created successfully.'] );
     }
 
     /**

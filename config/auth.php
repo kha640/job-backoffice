@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use Job\Shared\Models\User;
 
 return [
 

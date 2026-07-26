@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobApplication\EditJobApplicationValidationRequest;
-use App\Models\JobApplication;
+use Job\Shared\Models\JobApplication;
 use Illuminate\Http\Request;
 
 class JobApplicationController extends Controller

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\JobVacancy\CreateJobVacancyValidationRequest;
 use App\Http\Requests\JobVacancy\EditJobVacancyValidationRequest;
-use App\Models\Company;
-use App\Models\JobCategory;
-use App\Models\JobVacancy;
+use Job\Shared\Models\Company;
+use Job\Shared\Models\JobCategory;
+use Job\Shared\Models\JobVacancy;
 use Illuminate\Http\Request;
 
 class JobVacancyController extends Controller
@@ -22,6 +22,8 @@ class JobVacancyController extends Controller
 
         if ( auth()->user()->isCompanyOwner() ) {
             $query->where('companyId', auth()->user()->company->id);
+        } else {
+            $query->with('company');
         }
 
         if( $request->input('archived') == 'true' ) {
@@ -64,7 +66,7 @@ class JobVacancyController extends Controller
             'jobCategoryId' => $validatedData['jobCategoryId'],
         ]);
 
-        return redirect()->route('job-vacancies.index')->with([ 'success' => 'Job Vcacancy has created successfully' ]);
+        return redirect()->route('job-vacancies.index')->with([ 'success' => 'Job Vacancy has created successfully' ]);
     }
 
     /**
@@ -132,6 +134,6 @@ class JobVacancyController extends Controller
         $vacancy->restore();
 
         return redirect()->route('job-vacancies.index', ['archived' => 'true'])
-                         ->with([ 'success' => 'The company is restored successfully.' ]);
+                         ->with([ 'success' => 'The vacancy is restored successfully.' ]);
     }
 }

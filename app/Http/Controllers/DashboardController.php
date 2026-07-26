@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JobApplication;
-use App\Models\JobVacancy;
-use App\Models\User;
+use Job\Shared\Models\JobApplication;
+use Job\Shared\Models\JobVacancy;
+use Job\Shared\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -91,27 +91,27 @@ class DashboardController extends Controller
         $activeUsers = User::where('last_login_at', '>=', now()->subDays(30))
             ->where('role', 'job-seeker')
             ->whereHas('jobApplications', function( $query ) use ( $company ) {
-                $query->whereIn('jobVacancyId', $company->jobVacancies->pluck('id'));
+                $query->whereIn('jobVacancyId', $company->jobVacancies()->pluck('id'));
             })
             ->count();
 
         // Total Jobs Of The Comapny
-        $totalJobs = $company->jobVacancies->count();
+        $totalJobs = $company->jobVacancies()->count();
 
         // Total Applications Of The Company
-        $totalApplications = JobApplication::whereIn('jobVacancyId', $company->jobVacancies->pluck('id'))->count();
+        $totalApplications = JobApplication::whereIn('jobVacancyId', $company->jobVacancies()->pluck('id'))->count();
 
 
         // Most Applied Jobs Of The Company
         $mostAppliedJobs = JobVacancy::withCount('jobApplications as totalCount')
-            ->whereIn('id', $company->jobVacancieS->pluck('id'))
+            ->whereIn('id', $company->jobVacancies()->pluck('id'))
             ->limit(5)
             ->orderByDesc('totalCount')
             ->get();
 
         // Conversion Rates
         $conversionRates = JobVacancy::withCount('jobApplications as totalCount')
-            ->whereIn('id', $company->jobVacancies->pluck('id'))
+            ->whereIn('id', $company->jobVacancies()->pluck('id'))
             ->having('totalCount', '>', 0)
             ->orderByDesc('totalCount')
             ->limit(5)

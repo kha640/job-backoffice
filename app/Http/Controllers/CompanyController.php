@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Company\CreateCompanyValidationRequest;
 use App\Http\Requests\Company\EditCompanyValidationRequest;
-use App\Models\Company;
-use App\Models\User;
+use Job\Shared\Models\Company;
+use Job\Shared\Models\User;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -52,24 +52,22 @@ class CompanyController extends Controller
         $validatedData = $request->validated();
         // dd( $request->all() );
 
-        $companyOwner = User::create([
-            'name' => $validatedData['owner_name'],
-            'email' => $validatedData['owner_email'],
-            'password' => $validatedData['owner_password'],
-            'role' => 'company-owner',
-        ]);
+        DB::transaction(function () use ($validatedData) {
+            $companyOwner = User::create([
+                'name' => $validatedData['owner_name'],
+                'email' => $validatedData['owner_email'],
+                'password' => $validatedData['owner_password'],
+                'role' => 'company-owner',
+            ]);
 
-        if ( !$companyOwner ) {
-            return redirect()->route('companies.create')->with('error', 'Failed to create ower!');
-        }
-
-        Company::create([
-            'name' => $validatedData['name'],
-            'address' => $validatedData['address'],
-            'industry' => $validatedData['industry'],
-            'website' => $validatedData['website'],
-            'ownerId' => $companyOwner->id,
-        ]);
+            Company::create([
+                'name' => $validatedData['name'],
+                'address' => $validatedData['address'],
+                'industry' => $validatedData['industry'],
+                'website' => $validatedData['website'],
+                'ownerId' => $companyOwner->id,
+            ]);
+        });
 
         return redirect('/companies')->with( ['success' => 'Company created successfully.'] );
     }

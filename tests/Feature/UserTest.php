@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use Job\Shared\Models\User;
 
 test('Create user with name, email and password', function () {
     // Arrange
@@ -28,12 +28,12 @@ test('Create user that will fail validaiton', function() {
     // Act
     try {
         $user = User::create( $data );
-        $isFaild = false;
+        $isFailed = false;
     } catch ( Exception $e ) {
-        $isFaild = true;
+        $isFailed = true;
     }
 
-    expect( $isFaild )->toBeTrue();
+    expect( $isFailed )->toBeTrue();
     expect( User::where('email', $data['email'])->exists() )->toBeFalse();
 
 });

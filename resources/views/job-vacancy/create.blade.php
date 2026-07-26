@@ -69,19 +69,21 @@
                     </div>
 
                     {{-- Company select Dropdown --}}
-                    <div class="mb-2">
-                        <label for="companyId" class="block text-gray-700 mb-2">Company</label>
-                        <select name="companyId" class=" {{ $errors->has('companyId') ? 'border border-red-500' : 'border border-gray-300' }} rounded-md p-2 w-full" >
-                            @foreach ($companies as $company)
-                                <option value="{{ $company->id }}" {{ old('companyId') == $company->id ? 'selected' : '' }}>
-                                    {{ $company->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('company')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
+                    @if ( auth()->user()->isAdmin() )
+                        <div class="mb-2">
+                            <label for="companyId" class="block text-gray-700 mb-2">Company</label>
+                            <select name="companyId" class=" {{ $errors->has('companyId') ? 'border border-red-500' : 'border border-gray-300' }} rounded-md p-2 w-full" >
+                                @foreach ($companies as $company)
+                                    <option value="{{ $company->id }}" {{ old('companyId') == $company->id ? 'selected' : '' }}>
+                                        {{ $company->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('company')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    @endif
 
                     {{-- Job Category select Dropdown --}}
                     <div class="mb-2">

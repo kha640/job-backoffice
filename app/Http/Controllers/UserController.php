@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\EditUserValidationRequest;
-use App\Models\User;
+use Job\Shared\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
