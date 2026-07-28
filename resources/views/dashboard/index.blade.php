@@ -12,21 +12,21 @@
 
                 {{-- Active Users --}}
                 <div class="p-6 bg-white overflow-hidden shadow-sm rounded-lg gap-4 justify-items-center">
-                    <h3 class="text-lg font-medium text-gary-900"> Active Users </h3>
+                    <h3 class="text-lg font-medium text-gray-900"> Active Users </h3>
                     <p class="text-2xl font-bold text-indigo-600 p"> {{ $analytics['totalActiveUsersAtLastOneMonth'] }} </p>
                     <p class="text-sm font-sans text-gray-500"> Last 30 days </p>
                 </div>
 
                 {{-- Total Jobs --}}
                 <div class="p-6 bg-white overflow-hidden shadow-sm rounded-lg justify-items-center">
-                    <h3 class="text-lg font-medium text-gary-900"> Total Job Vacancies </h3>
+                    <h3 class="text-lg font-medium text-gray-900"> Total Job Vacancies </h3>
                     <p class="text-2xl font-bold text-indigo-600"> {{ $analytics['totalActiveJobVacancies'] }} </p>
                     <p class="text-sm font-sans text-gray-500"> All time </p>
                 </div>
 
                 {{-- Total Jobs --}}
                 <div class="p-6 bg-white overflow-hidden shadow-sm rounded-lg justify-items-center">
-                    <h3 class="text-lg font-medium text-gary-900"> Total Applications </h3>
+                    <h3 class="text-lg font-medium text-gray-900"> Total Applications </h3>
                     <p class="text-2xl font-bold text-indigo-600"> {{ $analytics['totalActiveApplications'] }} </p>
                     <p class="text-sm font-sans text-gray-500"> All time </p>
                 </div>
@@ -35,14 +35,14 @@
             <div class="grid grid-cols-2 gap-4">
                 {{-- Total Jobs --}}
                 <div class="p-6 bg-white overflow-hidden shadow-sm rounded-lg justify-items-center">
-                    <h3 class="text-lg font-medium text-gary-900"> Total Job Vacancies </h3>
+                    <h3 class="text-lg font-medium text-gray-900"> Total Job Vacancies </h3>
                     <p class="text-2xl font-bold text-indigo-600"> {{ $analytics['totalActiveJobVacancies'] }} </p>
                     <p class="text-sm font-sans text-gray-500"> All time </p>
                 </div>
 
                 {{-- Total Jobs --}}
                 <div class="p-6 bg-white overflow-hidden shadow-sm rounded-lg justify-items-center">
-                    <h3 class="text-lg font-medium text-gary-900"> Total Applications </h3>
+                    <h3 class="text-lg font-medium text-gray-900"> Total Applications </h3>
                     <p class="text-2xl font-bold text-indigo-600"> {{ $analytics['totalActiveApplications'] }} </p>
                     <p class="text-sm font-sans text-gray-500"> All time </p>
                 </div>
@@ -51,7 +51,7 @@
 
         {{-- Most Applied Jobs --}}
         <div class="p-6 bg-white overflow-hidden shadow-sm rounded-lg">
-            <h3 class="text-lg font-medium text-gary-900"> Most Applied Job Vacancies (Top 5) </h3>
+            <h3 class="text-lg font-medium text-gray-900"> Most Applied Job Vacancies (Top 5) </h3>
             <div>
                 <table class="w-full divide-y divide-gray-200">
                     <thead>
@@ -80,7 +80,7 @@
 
         {{-- Conversion Rate --}}
         <div class="p-6 bg-white overflow-hidden shadow-sm rounded-lg">
-            <h3 class="text-lg font-medium text-gary-900"> Conversion Rate (Top 5) </h3>
+            <h3 class="text-lg font-medium text-gray-900"> Conversion Rate (Top 5) </h3>
             <div>
                 <table class="w-full divide-y divide-gray-200">
                     <thead>

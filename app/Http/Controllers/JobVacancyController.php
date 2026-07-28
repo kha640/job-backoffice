@@ -54,7 +54,6 @@ class JobVacancyController extends Controller
     {
         $validatedData = $request->validated();
 
-        // dd( $validatedData );
 
         JobVacancy::create([
             'title' => $validatedData['title'],

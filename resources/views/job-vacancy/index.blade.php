@@ -1,5 +1,5 @@
 <x-app-layout>
-    {{-- Helper Varibles to reduce replication --}}
+    {{-- Helper Variables to reduce replication --}}
     @php
         $archivedParameter = request()->input('archived') == 'true';
     @endphp

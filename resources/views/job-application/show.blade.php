@@ -63,12 +63,12 @@
 
             {{-- Tab Content --}}
             <div class="mt-6">
-                {{-- Rsume Tab --}}
+                {{-- Resume Tab --}}
                 <div class="{{ (request('tab') == 'resume' || request('tab') == '') ? 'block' : 'hidden' }}">
                     <table class="min-w-full  rounded-lg shadow">
                         <thead class="bg-gray-100">
                             <tr>
-                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600"> Summray </th>
+                                <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600"> Summary </th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600"> Skills </th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600"> Experience </th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600"> Education </th>
